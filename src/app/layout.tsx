@@ -5,6 +5,7 @@ import { ClientProviders } from '@/components/ClientProviders';
 import FarcasterWrapper from "@/components/FarcasterWrapper";
 import XNotification from '@/components/XNotification';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Analytics } from '@vercel/analytics/next';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -31,6 +32,7 @@ export default function RootLayout({
       </ClientProviders>
             <XNotification />
             <SpeedInsights />
+            <Analytics />
           </body>
         </html>
       );
