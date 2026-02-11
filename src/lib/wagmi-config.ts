@@ -16,18 +16,18 @@ const viemChains = CHAINS.map(chain => {
   if (chain.rpcUrls.fallbacks) {
     rpcUrls.push(...chain.rpcUrls.fallbacks)
   }
-  
+
   const rpcConfig: any = {
     default: {
       http: rpcUrls
     }
   }
-  
+
   // Add websocket if available
   if (chain.rpcUrls.websocket) {
     rpcConfig.default.webSocket = [chain.rpcUrls.websocket]
   }
-  
+
   return defineChain({
     id: chain.chainId,
     name: chain.name,
@@ -50,20 +50,21 @@ export const stableTestnet = viemChains.find(c => c.id === 2201)!
 export const baseMainnet = viemChains.find(c => c.id === 8453)!
 export const tempoTestnet = viemChains.find(c => c.id === 42431)!
 export const megaethMainnet = viemChains.find(c => c.id === 4326)!
+export const abstractMainnet = viemChains.find(c => c.id === 2741)!
 
 // Auto-generate transports from CHAINS config
 const transports = CHAINS.reduce((acc, chain) => {
   const chainDef = viemChains.find(c => c.id === chain.chainId)!
-  
+
   // Network-specific retry counts
   const retryCount = chain.chainId === 5042002 ? 5 : 3 // ARC needs more retries
-  
+
   acc[chainDef.id] = http(chain.rpcUrls.primary, {
     timeout: 30000, // 30s timeout
     retryCount,
     retryDelay: 1000,
   })
-  
+
   return acc
 }, {} as Record<number, ReturnType<typeof http>>)
 
