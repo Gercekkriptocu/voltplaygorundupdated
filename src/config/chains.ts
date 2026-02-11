@@ -11,26 +11,26 @@ export interface ChainConfig {
   name: string
   displayName: string
   chainId: number
-  
+
   // RPC Configuration
   rpcUrls: {
     primary: string
     fallbacks?: string[]
     websocket?: string
   }
-  
+
   // Explorer
   explorerUrl: string
   explorerApiUrl: string
   explorerName: string
-  
+
   // Native Currency
   nativeCurrency: {
     name: string
     symbol: string
     decimals: number
   }
-  
+
   // Fee Token (if different from native)
   feeToken?: {
     name: string
@@ -39,14 +39,14 @@ export interface ChainConfig {
     decimals?: number
     isNative?: boolean
   }
-  
+
   // UI Styling
   color: string
   ascii: string
-  
+
   // Network Type
   testnet: boolean
-  
+
   // Faucet (for testnets)
   faucet?: string
 }
@@ -64,7 +64,7 @@ export const CHAINS: ChainConfig[] = [
     name: 'ARC Testnet',
     displayName: 'ARC NETWORK',
     chainId: 5042002,
-    
+
     rpcUrls: {
       primary: 'https://rpc.testnet.arc.network',
       fallbacks: [
@@ -73,17 +73,17 @@ export const CHAINS: ChainConfig[] = [
         'https://rpc.quicknode.testnet.arc.network'
       ],
     },
-    
+
     explorerUrl: 'https://testnet.arcscan.app',
     explorerApiUrl: 'https://testnet.arcscan.app/api/v2/stats',
     explorerName: 'ARC Scan',
-    
+
     nativeCurrency: {
       name: 'USD Coin',
       symbol: 'USDC',
       decimals: 18
     },
-    
+
     feeToken: {
       name: 'USD Coin',
       symbol: 'USDC',
@@ -91,13 +91,13 @@ export const CHAINS: ChainConfig[] = [
       decimals: 6,
       isNative: true // USDC is native gas token on ARC
     },
-    
+
     color: 'blue',
     ascii: '█▓▒░ ARC NETWORK ░▒▓█',
     testnet: true,
     faucet: 'https://faucet.testnet.arc.network'
   },
-  
+
   // ─────────────────────────────────────────────────────────────
   // 🟢 GIWA L2 (Upbit L2) - Sepolia Testnet
   // ─────────────────────────────────────────────────────────────
@@ -106,7 +106,7 @@ export const CHAINS: ChainConfig[] = [
     name: 'Giwa Sepolia Testnet',
     displayName: 'GIWA L2',
     chainId: 91342,
-    
+
     rpcUrls: {
       primary: 'https://sepolia-rpc.giwa.io',
       fallbacks: [
@@ -114,23 +114,23 @@ export const CHAINS: ChainConfig[] = [
         'https://rpc.giwa.sepolia.ethpandaops.io'
       ],
     },
-    
+
     explorerUrl: 'https://sepolia-explorer.giwa.io',
     explorerApiUrl: 'https://sepolia-explorer.giwa.io/api/v2/stats',
     explorerName: 'Giwa Explorer',
-    
+
     nativeCurrency: {
       name: 'Ethereum',
       symbol: 'ETH',
       decimals: 18
     },
-    
+
     color: 'green',
     ascii: '█▓▒░ GIWA L2 ░▒▓█',
     testnet: true,
     faucet: 'https://faucet.lambda256.io'
   },
-  
+
   // ─────────────────────────────────────────────────────────────
   // 🔵 BASE MAINNET - Ethereum L2
   // ─────────────────────────────────────────────────────────────
@@ -139,7 +139,7 @@ export const CHAINS: ChainConfig[] = [
     name: 'Base',
     displayName: 'BASE MAINNET',
     chainId: 8453,
-    
+
     rpcUrls: {
       primary: 'https://mainnet.base.org',
       fallbacks: [
@@ -149,22 +149,22 @@ export const CHAINS: ChainConfig[] = [
       ],
       websocket: 'wss://base.gateway.tenderly.co'
     },
-    
+
     explorerUrl: 'https://basescan.org',
     explorerApiUrl: 'https://api.basescan.org/api',
     explorerName: 'BaseScan',
-    
+
     nativeCurrency: {
       name: 'Ethereum',
       symbol: 'ETH',
       decimals: 18
     },
-    
+
     color: 'cyan',
     ascii: '█▓▒░ BASE MAINNET ░▒▓█',
     testnet: false
   },
-  
+
   // ─────────────────────────────────────────────────────────────
   // 🟣 TEMPO TESTNET - USD Native Chain (Moderato)
   // ─────────────────────────────────────────────────────────────
@@ -173,36 +173,36 @@ export const CHAINS: ChainConfig[] = [
     name: 'Tempo Testnet',
     displayName: 'TEMPO TESTNET',
     chainId: 42431,
-    
+
     rpcUrls: {
       primary: 'https://rpc.moderato.tempo.xyz',
       fallbacks: [],
       websocket: 'wss://rpc.moderato.tempo.xyz'
     },
-    
+
     explorerUrl: 'https://explore.tempo.xyz',
     explorerApiUrl: 'https://explore.tempo.xyz/api',
     explorerName: 'Tempo Explorer',
-    
+
     nativeCurrency: {
       name: 'USD',
       symbol: 'USD',
       decimals: 18
     },
-    
+
     feeToken: {
       name: 'USD',
       symbol: 'USD',
       decimals: 18,
       isNative: true // USD is native gas token on Tempo
     },
-    
+
     color: 'gray',
     ascii: '█▓▒░ TEMPO TESTNET ░▒▓█',
     testnet: true,
     faucet: 'https://docs.tempo.xyz/quickstart/get-testnet-usd'
   },
-  
+
   // ─────────────────────────────────────────────────────────────
   // 🟠 MEGAETH MAINNET - High-Performance EVM L2
   // ─────────────────────────────────────────────────────────────
@@ -211,27 +211,58 @@ export const CHAINS: ChainConfig[] = [
     name: 'MegaETH',
     displayName: 'MEGAETH MAINNET',
     chainId: 4326,
-    
+
     rpcUrls: {
       primary: 'https://mainnet.megaeth.com/rpc',
       fallbacks: [],
     },
-    
+
     explorerUrl: 'https://megaeth.blockscout.com',
     explorerApiUrl: 'https://megaeth.blockscout.com/api/v2/stats',
     explorerName: 'MegaETH Blockscout',
-    
+
     nativeCurrency: {
       name: 'Ethereum',
       symbol: 'ETH',
       decimals: 18
     },
-    
+
     color: 'orange',
     ascii: '█▓▒░ MEGAETH MAINNET ░▒▓█',
     testnet: false
   },
-  
+
+  // ─────────────────────────────────────────────────────────────
+  // 🟣 ABSTRACT MAINNET - Consumer-focused L2
+  // ─────────────────────────────────────────────────────────────
+  {
+    id: 'ABSTRACT',
+    name: 'Abstract',
+    displayName: 'ABSTRACT',
+    chainId: 2741,
+
+    rpcUrls: {
+      primary: 'https://api.mainnet.abs.xyz',
+      fallbacks: [
+        'https://abstract.drpc.org'
+      ],
+    },
+
+    explorerUrl: 'https://abscan.org',
+    explorerApiUrl: 'https://api.abscan.org/api',
+    explorerName: 'Abscan',
+
+    nativeCurrency: {
+      name: 'Ethereum',
+      symbol: 'ETH',
+      decimals: 18
+    },
+
+    color: 'teal',
+    ascii: '█▓▒░ ABSTRACT ░▒▓█',
+    testnet: false
+  },
+
   // ═══════════════════════════════════════════════════════════════
   // 🚀 YENİ CHAIN EKLEMEK İÇİN:
   // ═══════════════════════════════════════════════════════════════
@@ -289,12 +320,12 @@ export function getAddChainParameters(chainId: number): {
 } | null {
   const chain = getChainById(chainId)
   if (!chain) return null
-  
+
   const rpcUrls = [chain.rpcUrls.primary]
   if (chain.rpcUrls.fallbacks) {
     rpcUrls.push(...chain.rpcUrls.fallbacks)
   }
-  
+
   return {
     chainId: '0x' + chainId.toString(16),
     chainName: chain.name,
